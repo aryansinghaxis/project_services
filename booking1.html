@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Service-Squad</title>
-    <link rel="stylesheet" href="mealmate.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        body{
-            background-color: #212121;
-        }
-        .navbar {
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #212121;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
         background-color: #333;
         border-bottom: 2px solid #3be8d4;
         box-shadow: 0 0 10px rgba(21, 106, 106, 0.5);
@@ -54,6 +58,9 @@
       .dropdown {
         margin-right: 20px;
       }
+      .form-control {
+        width: 200px;
+      }
       .card{
         margin-top: 07%;
         margin-left: 11%;
@@ -72,6 +79,105 @@
   flex: 30.33%;
   padding: 1px;
 }
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+footer .social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+/* Mobile Styles */
+.menu-toggle {
+    display: none;
+}
+
+@media (max-width: 768px)
+{
+    header nav 
+    {
+        display: none;
+        flex-direction: column;
+    }
+    
+    header nav.active 
+    {
+        display: flex;
+    }
+    
+    .menu-toggle 
+    {
+        display: block;
+        background: #333;
+        color: #fff;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+    }
+  }
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+p{
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h1 {
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+h2 {
+    color: #666;
+    font-family: 'Times New Roman', Times, serif;
+}
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.booking-form {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 
     </style>
 </head>
@@ -88,11 +194,11 @@
               <li class="nav-item">
                 <a class="nav-link active bg-secondary " aria-current="page" href="index.html" target="_blank">Home</a>
               </li>
+              
               <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Login/Sign-UP
                 </a>
-              
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="login.html" target="_blank">Login</a></li>
                   <li><a class="dropdown-item" href="signup.html" target="_blank">Sign-UP</a></li>
@@ -102,18 +208,17 @@
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Services
                 </a>
-              
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="service-squad.html">Service-Squad</a></li>
                   <li><a class="dropdown-item" href="room-ease.html">Room-Ease</a></li>
-                  <li><a class="dropdown-item" href="meal-mate.html" target="_blank">Meal-Mate</a></li>
+                  <li><a class="dropdown-item" href="meal-mate.html">Meal-Mate</a></li>
                 </ul>
               </div>
               <li class="nav-item">
                 <a class="nav-link active bg-secondary" href="#">FAQ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active bg-secondary" aria-disabled="true" href="contactus.html" target="_blank">Contact us</a>
+                <a class="nav-link active bg-secondary" aria-disabled="true" href="# ">Contact us</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -123,30 +228,37 @@
           </div>
         </div>
       </nav>
-      
-    <!-- mealmate cards -->
-    <div class="cardpage">
-        <div class="card" style="width: 15rem;">
-           <a href="booking1.html" target="_blank"><img src="WhatsApp Image 2024-09-29 at 5.51.29 PM.jpeg" class="card-img-top" alt="..." ></a>
-           <div class="card-body">
-             <h4><center>Services related to Cleaner</center></h4>
-             <p><center>A cleaner is responsible for maintaining cleanliness and hygiene in spaces by sweeping, mopping, dusting, and sanitizing surfaces. They ensure a tidy environment, often in offices, homes, or public areas, contributing to health and safety. Effective cleaners are detail-oriented, reliable, and use appropriate cleaning tools and supplies.</center></p>
-           </div>
-         </div>
-         <div class="card" style="width: 15rem;">
-           <a href="booking.html" target="_blank"><img src="IMG-20240929-WA0042.jpg" class="card-img-top" alt="..." ></a>
-           <div class="card-body">
-               <h4><center>Services related to Plumber</center></h4>
-             <p><center>A plumber is a skilled professional who installs, repairs, and maintains water and drainage systems in homes and buildings. They handle tasks such as fixing leaks, unclogging drains, and installing pipes. Plumbers ensure safe and efficient water supply and sanitation, contributing to overall building functionality.</center></p>
-           </div>
-         </div>
-         <div class="card" style="width: 15rem;">
-           <a href="booking.html"><img src="IMG-20240929-WA0043.jpg" class="card-img-top" alt="..." ></a>
-           <div class="card-body">
-               <h4><center>Services related to Carpenters</center></h4>
-               <p><center>A carpenter is a skilled tradesperson who works with wood to build, repair, and install structures such as furniture, doors, frameworks, and cabinets. They use tools to cut, shape, and assemble materials. Carpenters play a vital role in construction and home improvement, ensuring both functionality and aesthetic appeal.<center></p>
-           </div>
-         </div>
-       </div>
+    <div class="container">
+        <header>
+            <h1>Book Your Service</h1>
+            <p>Schedule, and Enjoy — It's That Easy!</p>
+        </header>
+        <section class="booking-form">
+                <h3><center>Your Information</center></h3>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="Address">Address:</label>
+                <input type="text" id="Address" required>
+
+                <label for="service">Select Service:</label>
+                <select id="service" name="service" required>
+                <option value="none">None</option>
+                <option value="cleaning">House cleaning</option>
+                <option value="cleaning">Apartment cleaning</option>
+                <option value="cleaning">Commercial cleaning</option>
+                </select><br>
+
+                <center><button type="submit">Book Now</button></center>
+            </form>
+        </section>
+    </div>
 </body>
 </html>
+
