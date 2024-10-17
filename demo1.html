@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Billing System</title>
+    <title>Unique Food Delivery Billing</title>
     <style>
         * {
             box-sizing: border-box;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
+            padding: 20px;
         }
 
         .container {
-            width: 80%;
-            margin: 50px auto;
-            background-color: white;
+            max-width: 700px;
+            margin: auto;
+            background-color: #fff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h2, h3 {
             text-align: center;
+            color: #343a40;
         }
 
         .form-group {
@@ -42,20 +43,21 @@
         input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
 
         button {
             display: block;
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #28a745;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 10px;
+            font-size: 16px;
         }
 
         button:hover {
@@ -70,12 +72,13 @@
 
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 10px;
             text-align: center;
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #343a40;
+            color: white;
         }
 
         .total-section {
@@ -86,21 +89,56 @@
         .total-section p {
             font-size: 18px;
             font-weight: bold;
+            color: #333;
         }
 
         #checkoutBtn {
-            width: auto;
             background-color: #007bff;
         }
 
         #checkoutBtn:hover {
             background-color: #0056b3;
         }
+
+        .removeBtn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .removeBtn:hover {
+            background-color: #c82333;
+        }
+
+        .discount-group, .service-charge-group {
+            margin-top: 15px;
+        }
+
+        .recommended-items {
+            margin-top: 20px;
+        }
+
+        .recommended-items button {
+            background-color: #ffc107;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+
+        .recommended-items button:hover {
+            background-color: #e0a800;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Food Billing System</h2>
+        <h2>Unique Food Delivery Billing</h2>
 
         <form id="billingForm">
             <div class="form-group">
@@ -109,7 +147,7 @@
             </div>
 
             <div class="form-group">
-                <label for="itemPrice">Price:</label>
+                <label for="itemPrice">Price (₹):</label>
                 <input type="number" id="itemPrice" placeholder="Enter price" required>
             </div>
 
@@ -120,6 +158,13 @@
 
             <button type="button" id="addItemBtn">Add Item</button>
         </form>
+
+        <div class="recommended-items">
+            <h3>Recommended Items</h3>
+            <button type="button" onclick="addRecommendedItem(' ', 120)">  - ₹120</button>
+            <button type="button" onclick="addRecommendedItem('Pizza', 250)">Pizza - ₹250</button>
+            <button type="button" onclick="addRecommendedItem('Fries', 80)">Fries - ₹80</button>
+        </div>
 
         <div class="billing-section">
             <h3>Order Summary</h3>
@@ -136,9 +181,21 @@
                 <tbody id="orderBody"></tbody>
             </table>
             <div class="total-section">
+                <p>Service Charge (5%): ₹<span id="serviceCharge">0.00</span></p>
                 <p>Total: ₹<span id="totalAmount">0.00</span></p>
                 <button type="button" id="checkoutBtn">Checkout</button>
             </div>
+        </div>
+
+        <div class="discount-group">
+            <label for="discountCode">Have a discount code?</label>
+            <input type="text" id="discountCode" placeholder="Enter discount code">
+            <button type="button" onclick="applyDiscount()">Apply Discount</button>
+        </div>
+
+        <div class="service-charge-group">
+            <label for="tip">Add a Tip (₹):</label>
+            <input type="number" id="tip" value="0">
         </div>
     </div>
 
@@ -149,13 +206,27 @@
             const quantity = parseInt(document.getElementById('quantity').value);
             const subtotal = itemPrice * quantity;
 
+            if (itemName && itemPrice && quantity) {
+                addItemToOrder(itemName, quantity, itemPrice, subtotal);
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        function addRecommendedItem(name, price) {
+            const quantity = 1;
+            const subtotal = price * quantity;
+            addItemToOrder(name, quantity, price, subtotal);
+        }
+
+        function addItemToOrder(itemName, quantity, price, subtotal) {
             const orderBody = document.getElementById('orderBody');
             const row = document.createElement('tr');
 
             row.innerHTML = `
                 <td>${itemName}</td>
                 <td>${quantity}</td>
-                <td>₹${itemPrice.toFixed(2)}</td>
+                <td>₹${price.toFixed(2)}</td>
                 <td>₹${subtotal.toFixed(2)}</td>
                 <td><button type="button" class="removeBtn">Remove</button></td>
             `;
@@ -167,9 +238,7 @@
                 orderBody.removeChild(row);
                 updateTotal();
             });
-
-            document.getElementById('billingForm').reset();
-        });
+        }
 
         function updateTotal() {
             const orderRows = document.querySelectorAll('#orderBody tr');
@@ -180,7 +249,24 @@
                 total += subtotal;
             });
 
-            document.getElementById('totalAmount').innerText = total.toFixed(2);
+            const serviceCharge = total * 0.05;
+            document.getElementById('serviceCharge').innerText = serviceCharge.toFixed(2);
+
+            document.getElementById('totalAmount').innerText = (total + serviceCharge).toFixed(2);
+        }
+
+        function applyDiscount() {
+            const discountCode = document.getElementById('discountCode').value;
+
+            if (discountCode === 'FOOD20') {
+                const totalElement = document.getElementById('totalAmount');
+                const currentTotal = parseFloat(totalElement.innerText);
+                const discountAmount = currentTotal * 0.20;
+                totalElement.innerText = (currentTotal - discountAmount).toFixed(2);
+                alert('Discount Applied: 20% off');
+            } else {
+                alert('Invalid discount code');
+            }
         }
     </script>
 </body>
