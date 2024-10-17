@@ -328,10 +328,10 @@ function submitForm(event) {
             <input id="Email" type="text" required>
             <i>Email</i>
           </div>
-          <div class="inputBox">
+          <!-- <div class="inputBox">
             <input id="Password" type="password" required>
             <i>Password</i>
-          </div>
+          </div> -->
           <div class="inputBox">
             <input id="Address" type="text"  required>
             <i>Address</i>
@@ -366,7 +366,7 @@ function submitForm(event) {
         const Name = document.getElementById("Name").value;
         const Phone = document.getElementById("Phone").value;
         const Email = document.getElementById("Email").value;
-        const Password = document.getElementById("Password").value;
+        const Password = "";
         const Address = document.getElementById("Address").value;
         const City = document.getElementById("City").value;
         const State = document.getElementById("State").value;
@@ -375,7 +375,7 @@ function submitForm(event) {
         document.getElementById("Name").value = "";
         document.getElementById("Phone").value = "";
         document.getElementById("Email").value = "";
-        document.getElementById("Password").value = "";
+        //document.getElementById("Password").value = "";
         document.getElementById("Address").value = "";
         document.getElementById("City").value = "";
         document.getElementById("State").value = "";
@@ -403,7 +403,9 @@ function submitForm(event) {
         .then(data => {
           
             console.log('Success:', data);
-            alert(response);
+            alert(data["QRCodeData"]);
+            //var qrcode = new QRCode("qrcode");
+            //qrcode.makeCode(data["QRCodeData"]);
         })
         .catch((error) => {
             console.log('Error:', error);
