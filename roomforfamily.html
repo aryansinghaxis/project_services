@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Menu - Household Help Made</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #050706;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        nav {
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu-section {
+            padding: 50px 20px;
+            text-align: center;
+            margin: auto;
+            width: 90%;
+        }
+
+        .menu-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #121612;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .menu-item h3 {
+            font-size: 1.5em;
+            margin: 15px 0;
+        }
+
+        .menu-item p {
+            font-size: 1.1em;
+            color: #777;
+        }
+
+        .menu-item span {
+            font-size: 1.3em;
+            color: #0d0f0d;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #0f100f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Household Help Made - Room Booking</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Rooms</a>
+            <a href="#">Contact Us</a>
+        </nav>
+    </header>
+
+    <section class="menu-section">
+        <h2>Available Rooms</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src=" images (1).png" alt="Deluxe Room">
+                <h3>Deluxe Room</h3>
+                <p>Spacious room with king-sized bed, sea view, and complimentary breakfast.</p>
+                <span>₹4500 per night</span>
+            </div>
+            <div class="menu-item">
+                <img src="room (3).png " alt="Standard Room">
+                <h3>Standard Room</h3>
+                <p>Comfortable room with a queen-sized bed and city view.</p>
+                <span>₹3000 per night</span>
+            </div>
+            <div class="menu-item">
+                <img src=" room (2).png" alt="Suite">
+                <h3>Executive Suite</h3>
+                <p>Luxurious suite with living area, private balcony, and personalized services.</p>
+                <span>₹7500 per night</span>
+            </div>
+            <div class="menu-item">
+                <img src=" room (6).png" alt="Rental Room">
+                <h3>Family Room</h3>
+                <p>Large room suitable for families with 2 queen beds and kids' play area.</p>
+                <span>₹5500 per night</span>
+            </div>
+            <div class="menu-item">
+                <img src=" room(5).png" alt="Single Room">
+                <h3>Single Room</h3>
+                <p>Cozy room with a single bed, ideal for solo travelers.</p>
+                <span>₹2500 per night</span>
+            </div>
+        </div>
+    </section>
+
+     
+</body>
+</html>
