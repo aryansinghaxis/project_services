@@ -1,20 +1,15 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>webpage</title>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Service-Squad</title>
+    <link rel="stylesheet" href="mealmate.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-      body{
-        background-color: #212121; /* dark background */
-        padding: 20px;
-      }
-      .container img{
-        margin-top: 15px;
-      }
-      /* Add neon effect to navbar */
-      .navbar {
+        body{
+            background-color: #212121;
+            color: white;
+        }
+        .navbar {
         background-color: #333;
         border-bottom: 2px solid #3be8d4;
         box-shadow: 0 0 10px rgba(21, 106, 106, 0.5);
@@ -60,14 +55,7 @@
       .dropdown {
         margin-right: 20px;
       }
-      .form-control {
-        width: 200px;
-      }
-      .card{
-        margin-top: 07%;
-        margin-left: 11%;
-      }
-    .cardpage{
+      .cardpage{
     display: flex;
     margin-right: 10%;
     margin-bottom: 4%;
@@ -76,55 +64,66 @@
    h4{
     font-family: 'Times New Roman', Times, serif;
    }
-
-  .card {
-  flex: 30.33%;
-  padding: 1px;
+   .photo{
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 400px;
+    width: 400px;
+    margin-top: 150px;
+    margin-left: 250px;
+   
 }
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-footer .social-links a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
-}
-/* Mobile Styles */
-.menu-toggle {
-    display: none;
+.hoto{
+    background-color: transparent;
+    border: 5px solid white;
+    border-radius: 0px;
+    height: 400px;
+    width: 400px;
+    background-size: contain;
+   
 }
 
-@media (max-width: 768px)
-{
-    header nav 
-    {
-        display: none;
-        flex-direction: column;
-    }
-    
-    header nav.active 
-    {
-        display: flex;
-    }
-    
-    .menu-toggle 
-    {
-        display: block;
-        background: #333;
-        color: #fff;
-        border: none;
-        padding: 0.5rem;
-        cursor: pointer;
-    }
-  }
-    
+#photo{
+    margin: 150px;
+    margin-top: 180px;
+}
+.secondpage{
+    display: flex;
+   
+}
+.about{
+  margin-top: 250px;
+  margin-left: 100px;
+}
+.about .me{
+    height: 50px;
+    width: 200px;
+    border: 2px  solid cyan;
+    background-color: white;
+    justify-content: center;
+    align-items: self-start;
+   text-align: center;
+   color: black;
+   border-radius: 30px;
+   margin-top: 50px;
+}
+.about .me:hover{
+    background-color: aqua;
+    border: 2px  solid white;
+}
+.thirdpage{
+    display: flex;
+   
+}
+.fourthdpage{
+    display: flex;
+   
+}
+
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
         <div class="container-fluid">
@@ -135,15 +134,16 @@ footer .social-links a {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
               <li class="nav-item">
-                <a class="nav-link active bg-secondary " aria-current="page" href="index.html" target="_blank">Home</a>
+                <a class="nav-link active bg-secondary " aria-current="page" href="index.html">Home</a>
               </li>
               <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Login/Sign-UP
                 </a>
+              
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="login.html" target="_blank">Login</a></li>
-                  <li><a class="dropdown-item" href="signup.html" target="_blank">Sign-UP</a></li>
+                  <li><a class="dropdown-item" href="login.html">Login</a></li>
+                  <li><a class="dropdown-item" href="signup.html">Sign-UP</a></li>
                 </ul>
               </div>
               <div class="dropdown">
@@ -154,14 +154,14 @@ footer .social-links a {
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="service-squad.html">Service-Squad</a></li>
                   <li><a class="dropdown-item" href="room-ease.html">Room-Ease</a></li>
-                  <li><a class="dropdown-item" href="meal-mate.html" target="_blank">Meal-Mate</a></li>
+                  <li><a class="dropdown-item" href="meal-mate.html" >Meal-Mate</a></li>
                 </ul>
               </div>
               <li class="nav-item">
                 <a class="nav-link active bg-secondary" href="#">FAQ</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active bg-secondary" aria-disabled="true" href="contactus.html" target="_blank">Contact us</a>
+                <a class="nav-link active bg-secondary" aria-disabled="true" href="contactus.html">Contact us</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -171,31 +171,38 @@ footer .social-links a {
           </div>
         </div>
       </nav>
-     <!-- cards -->
-    <div class="cardpage">
-     <div class="card" style="width: 15rem;">
-        <a href="meal-mate.html" target="_blank"><img src="Beige And Yellow Illustrative Food Catering Logo.png" class="card-img-top" alt="..." ></a>
-        <div class="card-body">
-          <h4><center>Meal Mate </center></h4>
-          <p><center>Meal mate provides home-cooked meals, usually delivered daily, catering to individuals who prefer homemade food but lack of time to cook</center></p>
+      
+    <!-- mealmate cards -->
+    <div class="secondpage">
+        <div class="photo" id="photo">
+            <img src="IMG-20240929-WA0041.jpg" class="hoto">
         </div>
-      </div>
-      <div class="card" style="width: 15rem;">
-        <a href="room-ease.html" target="_blank"><img src="Blue Yellow Simple House for Rent Instagram Post (2).png" class="card-img-top" alt="..." ></a>
-        <div class="card-body">
-            <h4><center>Room Ease </center></h4>
-          <p><center>PG (Paying Guest) rooms offer affordable accommodation, typically for students, girls and professionals.Residents rent a room and share common facilities like the kitchen, bathroom, and living space.</center></p>
+        <div class="about">
+           
+        <h1>Services related to Cleaner</h1>
+        <p align="justify"> A cleaner is responsible for maintaining cleanliness and hygiene in spaces by sweeping, mopping, dusting, and sanitizing surfaces. They ensure a tidy environment, often in offices, homes, or public areas, contributing to health and safety. Effective cleaners are detail-oriented, reliable, and use appropriate cleaning tools and supplies.</p>
+            <button onclick="window.location.href='booking1.html'" class="me">Book Now</button>
         </div>
-      </div>
-      <div class="card" style="width: 15rem;">
-        <a href="service-squad.html"><img src="Yellow Modern Construction Service Instagram Post.png" class="card-img-top" alt="..." ></a>
-        <div class="card-body">
-            <h4><center>Service Squad  </center></h4>
-            <p><center>Our Service Squad plays a crucial role in supporting tasks efficiently, ensuring things run smoothly. They assist by offering their skills, time, and effort to make processes easier for others.</center></p>
-        </div>
-      </div>
     </div>
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+    <div class="thirdpage">
+      <div class="about">
+      <h1>Services related to Plumber</h1>
+      <p align="justify">A plumber is a skilled professional who installs, repairs, and maintains water and drainage systems in homes and buildings. They handle tasks such as fixing leaks, unclogging drains, and installing pipes. Plumbers ensure safe and efficient water supply and sanitation, contributing to overall building functionality</p>
+          <button onclick="window.location.href='booking1.html'" class="me">Book Now</button>
+      </div>
+      <div class="photo" id="photo">
+        <img src="IMG-20240929-WA0042.jpg" class="hoto">
+    </div>
+    </div>
+    <div class="fourthdpage">
+      <div class="photo" id="photo">
+          <img src="IMG-20240929-WA0043.jpg" class="hoto">
+      </div>
+      <div class="about">  
+      <h1>Services related to Carpenters</h1>
+      <p align="justify">A carpenter is a skilled tradesperson who works with wood to build, repair, and install structures such as furniture, doors, frameworks, and cabinets. They use tools to cut, shape, and assemble materials. Carpenters play a vital role in construction and home improvement, ensuring both functionality and aesthetic appeal. </p>
+         <button onclick="window.location.href='booking1.html'" class="me"> Book Now </button>
+      </div>
+  </div>
+</body>
 </html>

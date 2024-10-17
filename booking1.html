@@ -3,262 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        body {
-    font-family: Arial, sans-serif;
-    background-color: #212121;
-    margin: 0;
-    padding: 0;
-}
-.navbar {
-        background-color: #333;
-        border-bottom: 2px solid #3be8d4;
-        box-shadow: 0 0 10px rgba(21, 106, 106, 0.5);
-        position: sticky;
-      }
-      .navbar img{
-        margin-right: 2%;
-      }
-      .navbar.navbar-dark.bg-secondary {
-        background-color: #333 !important;
-      }
-      .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(102, 204, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-      }
-      .nav-link {
-        color: #00ccbb;
-        transition: color 0.2s ease;
-      }
-      .nav-link:hover {
-        color: #33cc00;
-      }
-      .dropdown-menu {
-        background-color: #333;
-        border: none;
-        box-shadow: 0 0 10px rgba(102, 204, 0, 0.5);
-      }
-      .dropdown-item {
-        color: #66cc00;
-      }
-      .dropdown-item:hover {
-        background-color: #333;
-        color: #33cc00;
-      }
-      /* Align elements */
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .nav-item {
-        margin-right: 20px;
-      }
-      .dropdown {
-        margin-right: 20px;
-      }
-      .form-control {
-        width: 200px;
-      }
-      .card{
-        margin-top: 07%;
-        margin-left: 11%;
-      }
-    .cardpage{
-    display: flex;
-    margin-right: 10%;
-    margin-bottom: 4%;
-    
-   }
-   h4{
-    font-family: 'Times New Roman', Times, serif;
-   }
-
-  .card {
-  flex: 30.33%;
-  padding: 1px;
-}
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-}
-
-footer .social-links a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
-}
-/* Mobile Styles */
-.menu-toggle {
-    display: none;
-}
-
-@media (max-width: 768px)
-{
-    header nav 
-    {
-        display: none;
-        flex-direction: column;
-    }
-    
-    header nav.active 
-    {
-        display: flex;
-    }
-    
-    .menu-toggle 
-    {
-        display: block;
-        background: #333;
-        color: #fff;
-        border: none;
-        padding: 0.5rem;
-        cursor: pointer;
-    }
+    <title>Service Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body{font-family : Arial, sans-serif;
+      background-color: black;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
   }
+  
+  .booking-container {
+      background-color: transparent;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      color: white;
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-p{
-    color: #000;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-h1 {
-    color: #000;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-h2 {
-    color: #666;
-    font-family: 'Times New Roman', Times, serif;
-}
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-.booking-form {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-
-    </style>
+  }
+  
+  h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      
+  }
+  
+  .form-group {
+      margin-bottom: 15px;
+  }
+  
+  label {
+      display: block;
+      margin-bottom: 5px;
+  }
+  
+  input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+  }
+  
+  button {
+      width: 100%;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+  
+  button:hover {
+      background-color: #218838;
+  }
+  
+  .hidden {
+      display: none;
+  }
+  
+  #confirmation-message {
+      text-align: center;
+  }
+  </style>
 </head>
 <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-        <div class="container-fluid">
-          <img src="logo1.gif" alt="ntng" width="100px" height="100px" >
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-              <li class="nav-item">
-                <a class="nav-link active bg-secondary " aria-current="page" href="index.html" target="_blank">Home</a>
-              </li>
-              
-              <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Login/Sign-UP
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="login.html" target="_blank">Login</a></li>
-                  <li><a class="dropdown-item" href="signup.html" target="_blank">Sign-UP</a></li>
-                </ul>
-              </div>
-              <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Services
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="service-squad.html">Service-Squad</a></li>
-                  <li><a class="dropdown-item" href="room-ease.html">Room-Ease</a></li>
-                  <li><a class="dropdown-item" href="meal-mate.html">Meal-Mate</a></li>
-                </ul>
-              </div>
-              <li class="nav-item">
-                <a class="nav-link active bg-secondary" href="#">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active bg-secondary" aria-disabled="true" href="# ">Contact us</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-light me-4" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    <div class="container">
-        <header>
-            <h1>Book Your Service</h1>
-            <p>Schedule, and Enjoy — It's That Easy!</p>
-        </header>
-        <section class="booking-form">
-                <h3><center>Your Information</center></h3>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+    <div class="booking-container">
+        <h1>Book Your Service</h1>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" required>
-
-                <label for="Address">Address:</label>
-                <input type="text" id="Address" required>
-
+        <form id="booking-form">
+            <!-- Service Selection -->
+            <div class="form-group">
                 <label for="service">Select Service:</label>
                 <select id="service" name="service" required>
-                <option value="none">None</option>
-                <option value="cleaning">House cleaning</option>
-                <option value="cleaning">Apartment cleaning</option>
-                <option value="cleaning">Commercial cleaning</option>
-                </select><br>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="cleaning">Cleaning</option>
+                    <option value="plumbing">Plumbing</option>
+                    <option value="electrical">Electrical</option>
+                </select>
+            </div>
 
-                <center><button type="submit">Book Now</button></center>
-            </form>
-        </section>
+            <!-- Date Selection -->
+            <div class="form-group">
+                <label for="date">Preferred Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <!-- Time Slot Selection -->
+            <div class="form-group">
+                <label for="time-slot">Preferred Time Slot:</label>
+                <select id="time-slot" name="time-slot" required>
+                    <option value="" disabled selected>Select a time slot</option>
+                    <option value="morning">Morning (9 AM - 12 PM)</option>
+                    <option value="afternoon">Afternoon (12 PM - 3 PM)</option>
+                    <option value="evening">Evening (3 PM - 6 PM)</option>
+                </select>
+            </div>
+
+            <!-- User Information -->
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Book Now</button>
+        </form>
+
+        <!-- Confirmation Message -->
+        <div id="confirmation-message" class="hidden">
+            <h2>Thank you for your booking!</h2>
+            <p>Your service request has been submitted successfully.</p>
+            <button id="new-booking">Make another booking</button>
+        </div>
     </div>
+
+    <script src="aryan.js"></script>
 </body>
 </html>
-

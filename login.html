@@ -274,13 +274,14 @@
     <div class="signin">
       <div class="content">
         <h2>Log in</h2>
+        <form onsubmit="submitLoginForm(event)" method="post" id="loginForm">
         <div class="form">
           <div class="inputBox">
-            <input type="text" required>
+            <input id="username" type="text" required>
             <i>Username</i>
           </div>
           <div class="inputBox">
-            <input type="password" required>
+            <input id="password" type="password" required>
             <i>Password</i>
           </div>
           <div class="links">
@@ -291,9 +292,58 @@
             <input type="submit" value="Login">
           </div>
         </div>
+        </form>
       </div>
     </div>
   </section>
+  <script>
+    function submitLoginForm(event) {
+        
+        event.preventDefault();
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+          // Get form values
+          const username = document.getElementById("username").value;
+          const password = document.getElementById("password").value;
+          
+        data = {
+          username : username,
+          password : password
+        };
+        
+        //alert('Success:', JSON.stringify(data));
+        fetch('http://127.0.0.1:8000/api/apiLogin/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+           
+          
+
+          sessionStorage.setItem('Email', data['data']['Email']);
+          sessionStorage.setItem('Name', data['data']['Name']);
+          sessionStorage.setItem('Phone_no', data['data']['Phone_no']);
+          sessionStorage.setItem('Address', data['data']['Address']);
+          sessionStorage.setItem('City', data['data']['City']);
+          sessionStorage.setItem('State', data['data']['State']);
+          sessionStorage.setItem('Pincode', data['data']['Pincode']);
+          console.log('Success: Login Wala', JSON.stringify(data));
+          console.log('Success: Upar Wala', JSON.stringify(data)); 
+          
+          window.location.href='index.html'
+          
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+            alert('Failed to send message.',error);
+        });
+      });
+  }
+  
+  </script>
 <!-- partial -->
   
 </body>

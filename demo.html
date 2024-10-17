@@ -1,271 +1,112 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>webpage</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Billing System</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Inline CSS -->
     <style>
-      body{
-         /* dark background */
-         background-image: url("pexels-olgalioncat-7245523.jpg");
-            backdrop-filter: blur(10px); /* Adjust blur amount */
-            padding: 20px; /* Some padding */
-            border-radius: 10px; /* Rounded corners */
-      }
-     
-      .container img{
-        margin-top: 15px;
-      }
-      /* Add neon effect to navbar */
-      .navbar {
-        background-color: #333;
-        filter: opacity(20px);
-        /*   border-bottom: 2px solid #3be8d4; */
-        box-shadow: 0 0 10px rgba(81, 104, 104, 0.5);
-        position: sticky;
-      }
-      .navbar img{
-        margin-right: 2%;
-      }
-      .navbar.navbar-dark.bg-secondary {
-        background-color: #333 !important;
-      }
-      .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(102, 204, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-      }
-      .nav-link {
-        color: #00ccbb;
-        transition: color 0.2s ease;
-      }
-      .nav-link:hover {
-        color: #33cc00;
-      }
-      .dropdown-menu {
-        background-color: #3F9BB2;
-        border: none;
-        box-shadow: 0 0 10px rgba(102, 204, 0, 0.5);
-      }
-      .dropdown-item {
-        color: #66cc00;
-      }
-      .dropdown-item:hover {
-        background-color: #333;
-        color: #33cc00;
-      }
-      /* Align elements */
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .nav-item {
-        margin-right: 20px;
-      }
-      .dropdown {
-        margin-right: 20px;
-      }
-      .form-control {
-        width: 200px;
-      }
-     
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;    
-}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
 
-footer .social-links a {
-    color: #fff;
-    margin: 0 10px;
-    text-decoration: none;
-}
-/* Mobile Styles */
-.menu-toggle {
-    display: none;
-}
+        .billing-container {
+            width: 50%;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
 
-@media (max-width: 768px)
-{
-    header nav
-    {
-        display: none;
-        flex-direction: column;
-    }
-   
-    header nav.active
-    {
-        display: flex;
-    }
-   
-    .menu-toggle
-    {
-        display: block;
-        background: #333;
-        color: #fff;
-        border: none;
-        padding: 0.5rem;
-        cursor: pointer;
-    }
-  }
-  /* Edit by Amit kumar */
-  .photo{
-    background-color: transparent;
-    border: 2px solid white;
-    border-radius: 10px;
-    height: 400px;
-    width: 400px;
-    margin-top: 150px;
-    margin-left: 250px;
-   
-}
-.hoto{
-    background-color: transparent;
-    border: 5px solid white;
-    border-radius: 40px;
-    height: 400px;
-    width: 400px;
-    background-size: contain;
-   
-}
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-#photo{
-    margin: 150px;
-    margin-top: 180px;
-}
-.secondpage{
-    display: flex;
-   
-}
-.about{
-  margin-top: 250px;
-  margin-left: 100px;
-}
-.about .me{
-    height: 50px;
-    width: 200px;
-    border: 2px  solid cyan;
-    background-color: white;
-    justify-content: center;
-    align-items: self-start;
-   text-align: center;
-   color: black;
-   border-radius: 30px;
-   margin-top: 50px;
-}
-.about .me:hover{
-    background-color: aqua;
-    border: 2px  solid white;
-}
-.thirdpage{
-    display: flex;
-   
-}
-.fourthdpage{
-    display: flex;
-   
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .total-section {
+            margin-bottom: 20px;
+        }
+
+        .payment-section {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
     </style>
-  </head>
-  <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-          <img src="logo1.gif" alt="ntng" width="100px" height="100px" >
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-              <li class="nav-item">
-                <a class="nav-link active bg-secondary " aria-current="page" href="index.html" target="_blank">Home</a>
-              </li>
-              <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Login/Sign-UP
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="login.html" target="_blank">Login</a></li>
-                  <li><a class="dropdown-item" href="signup.html" target="_blank">Sign-UP</a></li>
-                </ul>
-              </div>
-              <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Services
-                </a>
-             
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="service-squad.html">Service-Squad</a></li>
-                  <li><a class="dropdown-item" href="room-ease.html">Room-Ease</a></li>
-                  <li><a class="dropdown-item" href="meal-mate.html" target="_blank">Meal-Mate</a></li>
-                </ul>
-              </div>
-              <li class="nav-item">
-                <a class="nav-link active bg-secondary" href="#">FAQ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active bg-secondary" aria-disabled="true" href="contactus.html" target="_blank">Contact us</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-light me-4" type="submit">Search</button>
-            </form>
-          </div>
+</head>
+<body>
+    <div class="billing-container">
+        <h2>Restaurant Billing</h2>
+        <div class="order-section">
+            <h3>Order Summary</h3>
+            <table id="order-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Items will be inserted dynamically -->
+                </tbody>
+            </table>
         </div>
-      </nav>
-     <!-- cards -->
-     <div class="secondpage">
-      <div class="photo" id="photo">
-          <img src="https://static4.depositphotos.com/1020804/343/i/950/depositphotos_3434099-stock-photo-fruits.jpg" class="hoto">
-      </div>
-      <div class="about">
-         
-      <h1>Meal Mate</h1>
-      <p>
-        meal mate provides home-cooked meals, usually delivered daily, catering to individuals who prefer homemade food but lack the time to cook. Popular among students, professionals, and bachelors, it offers convenient, affordable, and nutritious meal options, often featuring traditional dishes. meal mate are valued for their reliability and home-style cooking.!</p>
-          <button class="me">More About</button>
-      </div>
-  </div>
-  <div class="thirdpage">
-    <div class="about">
-    <h1>Room-Ease</h1>
-    <p>
-      Room-Ease offer affordable accommodation, typically for students, girls and professionals. Residents rent a room and share common facilities like the kitchen, bathroom, and living space. PGs often provide meals and basic amenities, offering a comfortable, convenient living option with less responsibility compared to renting an entire apartment.</p>
-        <button class="me">More About</button>
-    </div>
-    <div class="photo" id="photo">
-      <img src="https://static4.depositphotos.com/1020804/343/i/950/depositphotos_3434099-stock-photo-fruits.jpg" class="hoto">
-  </div>
-  </div>
-  <div class="fourthdpage">
-    <div class="photo" id="photo">
-        <img src="https://static4.depositphotos.com/1020804/343/i/950/depositphotos_3434099-stock-photo-fruits.jpg" class="hoto">
-    </div>
-    <div class="about">
-       
-    <h1>Service Squad</h1>
-    <p>
-      Keep your retail spaces spotless and inviting with our tailored cleaning services. We offer regular maintenance, deep cleaning, and specialized services like floor care and window cleaning. Create a positive shopping experience for your customers.</p>
-        <button class="me">More About</button>
-    </div>
-</div>
-   
-    <!-- footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 HouseHoldHelpMate. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
-            </div>
+
+        <div class="total-section">
+            <p>Subtotal: $<span id="subtotal">0.00</span></p>
+            <p>Tax (5%): $<span id="tax">0.00</span></p>
+            <p>Discount: $<span id="discount">0.00</span></p>
+            <p><strong>Total: $<span id="total">0.00</span></strong></p>
         </div>
-    </footer>
- 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  </body>
+
+        <div class="payment-section">
+            <h3>Payment Method</h3>
+            <select id="payment-method">
+                <option value="Cash">Cash</option>
+                <option value="Card">Card</option>
+                <option value="Online">Online</option>
+            </select>
+            <button onclick="generateBill()">Generate Bill</button>
+        </div>
+    </div>
+
+    <!-- JavaScript file reference -->
+    <script src="script.js"></script>
+</body>
 </html>

@@ -1,0 +1,209 @@
+# Preparing the HTML, CSS, and JavaScript source code into separate files.
+
+# HTML content
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Interface</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Food Billing System</h2>
+
+        <form id="billingForm">
+            <div class="form-group">
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" placeholder="Enter food item" required>
+            </div>
+
+            <div class="form-group">
+                <label for="itemPrice">Price:</label>
+                <input type="number" id="itemPrice" placeholder="Enter price" required>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" value="1" required>
+            </div>
+
+            <button type="button" id="addItemBtn">Add Item</button>
+        </form>
+
+        <div class="billing-section">
+            <h3>Order Summary</h3>
+            <table id="orderTable">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Subtotal</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="orderBody"></tbody>
+            </table>
+            <div class="total-section">
+                <p>Total: ₹<span id="totalAmount">0.00</span></p>
+                <button type="button" id="checkoutBtn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+ CSS content
+css_content = """* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.total-section {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.total-section p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#checkoutBtn {
+    width: auto;
+    background-color: #007bff;
+}
+
+#checkoutBtn:hover {
+    background-color: #0056b3;
+}
+"""
+
+# JavaScript content
+js_content = """document.getElementById('addItemBtn').addEventListener('click', function() {
+    const itemName = document.getElementById('itemName').value;
+    const itemPrice = parseFloat(document.getElementById('itemPrice').value);
+    const quantity = parseInt(document.getElementById('quantity').value);
+    const subtotal = itemPrice * quantity;
+
+    const orderBody = document.getElementById('orderBody');
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+        <td>${itemName}</td>
+        <td>${quantity}</td>
+        <td>₹${itemPrice.toFixed(2)}</td>
+        <td>₹${subtotal.toFixed(2)}</td>
+        <td><button type="button" class="removeBtn">Remove</button></td>
+    `;
+
+    orderBody.appendChild(row);
+    updateTotal();
+
+    row.querySelector('.removeBtn').addEventListener('click', function() {
+        orderBody.removeChild(row);
+        updateTotal();
+    });
+
+    document.getElementById('billingForm').reset();
+});
+
+function updateTotal() {
+    const orderRows = document.querySelectorAll('#orderBody tr');
+    let total = 0;
+
+    orderRows.forEach(row => {
+        const subtotal = parseFloat(row.cells[3].innerText.replace('₹', ''));
+        total += subtotal;
+    });
+
+    document.getElementById('totalAmount').innerText = total.toFixed(2);
+}
+"""
+
+# Saving the files
+html_file_path = '/mnt/data/index.html'
+css_file_path = '/mnt/data/styles.css'
+js_file_path = '/mnt/data/scripts.js'
+
+with open(html_file_path, 'w') as html_file:
+    html_file.write(html_content)
+
+with open(css_file_path, 'w') as css_file:
+    css_file.write(css_content)
+
+with open(js_file_path, 'w') as js_file:
+    js_file.write(js_content)
+
+html_file_path, css_file_path, js_file_path

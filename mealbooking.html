@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0c0c0c;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #09bcd0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #090e0f;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            color: rgb(161, 197, 230);
+        }
+    </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Book Your Meal at Meal Mate</h2>
+
+    <!-- Restaurant selection -->
+    <label for="restaurant">Select Delivery Partner:</label>
+    <select id="restaurant">
+        <option value="restaurant1">The Spice House</option>
+        <option value="restaurant2">Urban Tandoor</option>
+        <option value="restaurant3">Olive Bistro</option>
+        <option value="restaurant4">The Steak Grill</option>
+    </select>
+
+    <!-- Meal selection -->
+    <label for="meal">Select Meal:</label>
+    <select id="meal">
+        <option value="Chef">Cook</option>
+        <option value="Regural">Regural</option>
+        <option value="Customize">Customize</option>
+    </select>
+
+    <!-- Date input -->
+    <label for="date">Select Date:</label>
+    <input type="date" id="date">
+
+    <!-- Time selection -->
+    <label for="time">Select Time Slot:</label>
+    <select id="time">
+        <option value="10:00 AM">10:00 AM</option>
+        <option value="12:30 PM">12:30 PM</option>
+        <option value="6:00 PM">6:00 PM</option>
+        <option value="8:00 PM">8:00 PM</option>
+    </select>
+
+    <!-- Button to book meal -->
+    <button onclick="bookMeal()">Book Meal</button>
+
+    <!-- Message to show booking status -->
+    <div class="message" id=""></div>
+</div>
+
+<script>
+    function bookMeal() {
+        const restaurant = document.getElementById('restaurant').value;
+        const meal = document.getElementById('meal').value;
+        const date = document.getElementById('date').value;
+        const time = document.getElementById('time').value;
+        
+        // Basic validation
+        if (restaurant && meal && date && time) {
+            // Display booking message
+            document.getElementById('message').innerText = `Your table for ${meal} at ${restaurant} on ${date} at ${time} is booked!`;
+        } else {
+            document.getElementById('message').innerText = "Please fill out all fields!";
+        }
+    }
+</script>
+
+</body>
+</html>
+

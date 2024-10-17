@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #070101;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #157a85;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #100e0e;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Book Your Stay at Room Ease</h2>
+    
+    <!-- Location selection -->
+
+    <label for="Select room "> Select room:</label>
+    <select id="Select room">
+        <option value="" selected></option>
+        <option value=" Room for Family"> Room for Family</option>
+        <option value=" Room for girls "> Room for Girls</option>
+        <option value="Room for bachelors"> Room for Bachelors</option>
+    </select>
+
+    <!-- Check-in and Check-out date -->
+    <label for="checkin">Check-in Date:</label>
+    <input type="date" id="checkin" >
+    
+    <label for="checkout">Check-out Date:</label>
+    <input type="date" id="checkout">
+
+    <!-- Room Type selection -->
+    <label for="room">Select Room Type:</label>
+    <select id="room">
+        <option value="Dormitory Bed">Dormitory Bed</option>
+        <option value="Private Room">Private Room</option>
+        <option value="Mixed Dorm">Mixed Dorm</option>
+    </select>
+
+    <input type="message" id="checkout">
+
+
+    <!-- Button to book stay -->
+    <button onclick="bookStay()">Book Now</button>
+
+    <!-- Message to show booking status -->
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+    function bookStay() {
+        const location = document.getElementById('location').value;
+        const checkin = document.getElementById('checkin').value;
+        const checkout = document.getElementById('checkout').value;
+        const room = document.getElementById('room').value;
+        
+        // Check if all fields are filled
+        if (location && checkin && checkout && room) {
+            // Display booking confirmation message
+            document.getElementById('message').innerText = `Your stay at ${location} in a ${room} from ${checkin} to ${checkout} is booked!`;
+        } else {
+            document.getElementById('message').innerText = "Please fill out all fields!";
+        }
+    }
+</script>
+
+</body>
+</html>
+

@@ -8,6 +8,45 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
+<script>
+function submitForm(event) {
+          
+  event.preventDefault();
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    // Get form values
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    // Prepare the data to be sent
+    const data = {
+        Name: name,
+        Email: email,
+        Message: message
+    };
+    alert(JSON.stringify(data));
+    // Send data to the API using fetch
+    fetch('http://127.0.0.1:8000/api/apiSignIn/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        alert('Message sent successfully!');
+    })
+    .catch((error) => {
+        console.log('Error:', error);
+        alert('Failed to send message.');
+    });
+});
+}
+
+
+</script> 
 <section>
 
     <span></span>
@@ -270,40 +309,43 @@
     <span></span>
     <span></span>
     <span></span>
+</section>
+<section>
     <div class="signup">
+      <form onsubmit="submitSignUpForm(event)" id="SignUpForm" method="post">
       <div class="content"> 
         <h2> Sign UP </h2>
         <div class="form">
           <div class="inputBox">
-            <input type="text" required>
+            <input id="Name" type="text" required>
             <i>Name</i>
           </div>
           <div class="inputBox">
-            <input type="number" required>
+            <input id="Phone" type="number" required>
             <i>Phone number</i>
           </div>
           <div class="inputBox">
-            <input type="text" required>
+            <input id="Email" type="text" required>
             <i>Email</i>
           </div>
           <div class="inputBox">
-            <input type="password" required>
+            <input id="Password" type="password" required>
             <i>Password</i>
           </div>
           <div class="inputBox">
-          <input type="text"  required>
+            <input id="Address" type="text"  required>
             <i>Address</i>
           </div>
           <div class="inputBox">
-            <input type="text" required>
+            <input id="City" type="text" required>
             <i>City</i>
           </div>
           <div class="inputBox">
-            <input type="text" required>
+            <input id="State" type="text" required>
             <i>State</i>
           </div>
           <div class="inputBox">
-            <input type="number" required>
+            <input id="Pincode" type="number" required>
             <i>Pincode</i>
           </div>
           <div class="inputBox">
@@ -311,8 +353,65 @@
           </div>
         </div>
       </div>
+    </form>
     </div>
   </section>
 <!-- partial -->
+<script>
+  function submitSignUpForm(event) {
+      
+      event.preventDefault();
+      document.getElementById('SignUpForm').addEventListener('submit', function(event) {
+        // Get form values
+        const Name = document.getElementById("Name").value;
+        const Phone = document.getElementById("Phone").value;
+        const Email = document.getElementById("Email").value;
+        const Password = document.getElementById("Password").value;
+        const Address = document.getElementById("Address").value;
+        const City = document.getElementById("City").value;
+        const State = document.getElementById("State").value;
+        const Pincode = document.getElementById("Pincode").value;
+
+        document.getElementById("Name").value = "";
+        document.getElementById("Phone").value = "";
+        document.getElementById("Email").value = "";
+        document.getElementById("Password").value = "";
+        document.getElementById("Address").value = "";
+        document.getElementById("City").value = "";
+        document.getElementById("State").value = "";
+        document.getElementById("Pincode").value = "";
+      // Prepare the data to be sent
+      data = {
+        Name : Name,
+        Phone_no : Phone,
+        Email : Email,
+        Password : Password,
+        Address : Address,
+        City : City,
+        State : State,
+        Pincode : Pincode
+      };
+
+        fetch('http://127.0.0.1:8000/api/apiSignIn/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+          
+            console.log('Success:', data);
+            alert(response);
+        })
+        .catch((error) => {
+            console.log('Error:', error);
+            alert('Failed to send message.');
+        });
+    });
+}
+
+</script>
 </body>
 </html>

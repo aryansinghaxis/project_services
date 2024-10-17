@@ -121,7 +121,7 @@ h1{
   margin-top: 20px;
 
 }
-form1{
+form{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -189,39 +189,39 @@ a{
 </head>
 <body>
   <script>
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
+//   document.getElementById('contactForm').addEventListener('submit', function(event) {
+//     event.preventDefault(); // Prevent default form submission
+    
+//     // Get form values
+//     const name = document.getElementById('name').value;
+//     const email = document.getElementById('email').value;
+//     const message = document.getElementById('message').value;
 
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    // Prepare the data to be sent
-    const data = {
-        Name: name,
-        Email: email,
-        Message: message
-    };
-
-    // Send data to the API using fetch
-    fetch('http://127.0.0.1:8000/contactus/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log('Success:', data);
-        alert('Message sent successfully!');
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-        alert('Failed to send message.');
-    });
-});
+//     // Prepare the data to be sent
+//     const data = {
+//         Name: name,
+//         Email: email,
+//         Message: message
+//     };
+//     alert(JSON.stringify(data));
+//     // Send data to the API using fetch
+//     fetch('http://127.0.0.1:8000/api/contactus/', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log('Success:', data);
+//         alert('Message sent successfully!');
+//     })
+//     .catch((error) => {
+//         console.error('Error:', error);
+//         alert('Failed to send message.');
+//     });
+// });
   </script>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
@@ -270,15 +270,55 @@ a{
         </div>
       </nav>
     <h1>Contact Us</h1>
-    <form1 id="contactForm" action="#" method="post">
+    <form onsubmit="submitForm(event)" id="contactForm"  method="post">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required><br><br>
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
         <label for="message">Your Message </label>
         <textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
-        <input type="submit" value="Sumbit">
+        <input type="submit" id="submit" value="Sumbit">
         <br><br><input type="reset" value="Reset">
-    </form1>
+    </form>
+    
+
+    <script>
+      function submitForm(event) {
+          
+          event.preventDefault();
+          document.getElementById('contactForm').addEventListener('submit', function(event) {
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Prepare the data to be sent
+            const data = {
+                Name: name,
+                Email: email,
+                Message: message
+            };
+            alert(JSON.stringify(data));
+            // Send data to the API using fetch
+            fetch('http://127.0.0.1:8000/api/contactus/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Message sent successfully!');
+            })
+            .catch((error) => {
+                console.log('Error:', error);
+                alert('Failed to send message.');
+            });
+        });
+    }
+
+    </script>
 </body>
 </html>

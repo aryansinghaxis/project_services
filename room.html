@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Service-Squad</title>
+    <title>Room-Ease</title>
     <link rel="stylesheet" href="mealmate.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body{
             background-color: #212121;
+            color: white;
         }
         .navbar {
         background-color: #333;
@@ -18,7 +19,7 @@
         margin-right: 2%;
       }
       .navbar.navbar-dark.bg-secondary {
-        background-color: #333 !important;
+        background-color: #1c1c1c !important;
       }
       .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(102, 204, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
@@ -31,7 +32,7 @@
         color: #33cc00;
       }
       .dropdown-menu {
-        background-color: #333;
+        background-color: #f8f5f5;
         border: none;
         box-shadow: 0 0 10px rgba(102, 204, 0, 0.5);
       }
@@ -54,11 +55,7 @@
       .dropdown {
         margin-right: 20px;
       }
-      .card{
-        margin-top: 07%;
-        margin-left: 11%;
-      }
-    .cardpage{
+      .cardpage{
     display: flex;
     margin-right: 10%;
     margin-bottom: 4%;
@@ -67,10 +64,62 @@
    h4{
     font-family: 'Times New Roman', Times, serif;
    }
+   .photo{
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 300px;
+    width: 300px;
+    margin-top: 150px;
+    margin-left: 250px;
+   
+}
+.hoto{
+    background-color: transparent;
+    border: 5px solid white;
+    border-radius: 0px;
+    height: 300px;
+    width: 300px;
+    background-size: contain;
+   
+}
 
-  .card {
-  flex: 30.33%;
-  padding: 1px;
+#photo{
+    margin: 150px;
+    margin-top: 180px;
+}
+.secondpage{
+    display: flex;
+   
+}
+.about{
+  margin-top: 250px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.about .me{
+    height: 50px;
+    width: 200px;
+    border: 2px  solid cyan;
+    background-color: white;
+    justify-content: center;
+    align-items: self-start;
+   text-align: center;
+   color: black;
+   border-radius: 30px;
+   margin-top: 50px;
+}
+.about .me:hover{
+    background-color: aqua;
+    border: 2px  solid white;
+}
+.thirdpage{
+    display: flex;
+   
+}
+.fourthdpage{
+    display: flex;
+   
 }
 
     </style>
@@ -86,7 +135,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
               <li class="nav-item">
-                <a class="nav-link active bg-secondary " aria-current="page" href="index.html" target="_blank">Home</a>
+                <a class="nav-link active bg-secondary " aria-current="page" href="index.html">Home</a>
               </li>
               <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -94,8 +143,8 @@
                 </a>
               
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="login.html" target="_blank">Login</a></li>
-                  <li><a class="dropdown-item" href="signup.html" target="_blank">Sign-UP</a></li>
+                  <li><a class="dropdown-item" href="login.html" >Login</a></li>
+                  <li><a class="dropdown-item" href="signup.html" >Sign-UP</a></li>
                 </ul>
               </div>
               <div class="dropdown">
@@ -106,14 +155,14 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="service-squad.html">Service-Squad</a></li>
                   <li><a class="dropdown-item" href="room-ease.html">Room-Ease</a></li>
-                  <li><a class="dropdown-item" href="meal-mate.html" target="_blank">Meal-Mate</a></li>
+                  <li><a class="dropdown-item" href="meal-mate.html">Meal-Mate</a></li>
                 </ul>
               </div>
               <li class="nav-item">
-                <a class="nav-link active bg-secondary" href="#">FAQ</a>
+                <a class="nav-link active bg-secondary" href="#">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active bg-secondary" aria-disabled="true" href="contactus.html" target="_blank">Contact us</a>
+                <a class="nav-link active bg-secondary" aria-disabled="true" href="contactus.html">Contact us</a>
               </li>
             </ul>
             <form class="d-flex" role="search">
@@ -125,28 +174,37 @@
       </nav>
       
     <!-- mealmate cards -->
-    <div class="cardpage">
-        <div class="card" style="width: 15rem;">
-           <a href="booking1.html" target="_blank"><img src="WhatsApp Image 2024-09-29 at 5.51.29 PM.jpeg" class="card-img-top" alt="..." ></a>
-           <div class="card-body">
-             <h4><center>Services related to Cleaner</center></h4>
-             <p><center>A cleaner is responsible for maintaining cleanliness and hygiene in spaces by sweeping, mopping, dusting, and sanitizing surfaces. They ensure a tidy environment, often in offices, homes, or public areas, contributing to health and safety. Effective cleaners are detail-oriented, reliable, and use appropriate cleaning tools and supplies.</center></p>
-           </div>
-         </div>
-         <div class="card" style="width: 15rem;">
-           <a href="booking.html" target="_blank"><img src="IMG-20240929-WA0042.jpg" class="card-img-top" alt="..." ></a>
-           <div class="card-body">
-               <h4><center>Services related to Plumber</center></h4>
-             <p><center>A plumber is a skilled professional who installs, repairs, and maintains water and drainage systems in homes and buildings. They handle tasks such as fixing leaks, unclogging drains, and installing pipes. Plumbers ensure safe and efficient water supply and sanitation, contributing to overall building functionality.</center></p>
-           </div>
-         </div>
-         <div class="card" style="width: 15rem;">
-           <a href="booking.html"><img src="IMG-20240929-WA0043.jpg" class="card-img-top" alt="..." ></a>
-           <div class="card-body">
-               <h4><center>Services related to Carpenters</center></h4>
-               <p><center>A carpenter is a skilled tradesperson who works with wood to build, repair, and install structures such as furniture, doors, frameworks, and cabinets. They use tools to cut, shape, and assemble materials. Carpenters play a vital role in construction and home improvement, ensuring both functionality and aesthetic appeal.<center></p>
-           </div>
-         </div>
-       </div>
+    <div class="secondpage">
+      <div class="photo" id="photo">
+        <img src="IMG-20240929-WA0044.jpg"class="hoto">
+      </div>
+      <div class="about">
+         
+      <h1> Rooms For Girls</h1>
+      <p align="justify">PG (Paying Guest) rooms for girls and students offer safe, affordable accommodation with essential amenities like meals, laundry, and Wi-Fi. These spaces prioritize security with features like restricted entry and CCTV. Ideal for female students and working women, PGs provide a comfortable, shared living environment with home-like care and convenience.</p>
+          <button onclick="window.location.href='roombooking.html'" class="me">More About</button>
+      </div>
+  </div>
+  <div class="thirdpage">
+    <div class="about">
+    <h1> Rooms For Family</h1>
+    <p align="justify">PG (Paying Guest) rooms for families offer budget-friendly accommodation with essential amenities like meals, Wi-Fi, and housekeeping services. These spaces provide a homely environment, suitable for small families seeking temporary or short-term housing. PGs offer convenience with shared facilities, while some may include private rooms to ensure family privacy.</p>
+        <button onclick="window.location.href='roombooking.html'"class="me">More About</button>
+    </div>
+    <div class="photo" id="photo">
+       <img src="IMG-20240929-WA0045.jpg " class="hoto"></a>
+  </div>
+  </div>
+  <div class="fourthdpage">
+    <div class="photo" id="photo">
+        <img src="IMG-20240929-WA0046 (1).jpg" class="hoto">
+    </div>
+    <div class="about">
+       
+    <h1>PG Rooms For Bachelors And Students</h1>
+    <p align="justify">PG (Paying Guest) rooms for bachelors and students provide affordable, shared accommodation with basic amenities like laundry, Wi-Fi. Ideal for those seeking a hassle-free living arrangement, PGs offer a home-like environment with shared spaces, making them popular among young professionals and students seeking convenience and cost savings.</p>
+        <button onclick="window.location.href='roombooking.html'" class="me">More About</button>
+    </div>
+</div>
 </body>
 </html>
