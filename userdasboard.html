@@ -239,21 +239,15 @@ footer .social-links a {
 <script>
     function preventLogin(){
     //alert(sessionStorage.getItem('Email'));
-    if ((sessionStorage.getItem('Email')) === null)
-    {
-      window.location.href='index.html';
+      if ((sessionStorage.getItem('Email')) === null)
+      {
+        window.location.href='index.html';
 
-    }
-      
-
-
+      }
     }
     function doLogout(){
-    sessionStorage.clear();
-    window.location.href='index.html';
-      
-
-
+      sessionStorage.clear();
+      window.location.href='index.html';
     }
 </script>
    

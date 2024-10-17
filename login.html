@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <title>Sign-In</title>
   <link rel="stylesheet" href="nav.css">
-
+  <script src="https://unpkg.com/browse/otplib@12.0.0-0/authenticator/index.js"></script>
 </head>
 <body>
+  
+
 <!-- partial:index.partial.html -->
 <section>
 
@@ -297,6 +299,9 @@
     </div>
   </section>
   <script>
+
+ 
+
     function submitLoginForm(event) {
         
         event.preventDefault();
@@ -321,19 +326,22 @@
         .then(response => response.json())
         .then(data => {
            
-          
+    
+            
 
-          sessionStorage.setItem('Email', data['data']['Email']);
-          sessionStorage.setItem('Name', data['data']['Name']);
-          sessionStorage.setItem('Phone_no', data['data']['Phone_no']);
-          sessionStorage.setItem('Address', data['data']['Address']);
-          sessionStorage.setItem('City', data['data']['City']);
-          sessionStorage.setItem('State', data['data']['State']);
-          sessionStorage.setItem('Pincode', data['data']['Pincode']);
-          console.log('Success: Login Wala', JSON.stringify(data));
-          console.log('Success: Upar Wala', JSON.stringify(data)); 
-          
-          window.location.href='userdasboard.html'
+            sessionStorage.setItem('Email', data['data']['Email']);
+            sessionStorage.setItem('Name', data['data']['Name']);
+            sessionStorage.setItem('Phone_no', data['data']['Phone_no']);
+            sessionStorage.setItem('Address', data['data']['Address']);
+            sessionStorage.setItem('City', data['data']['City']);
+            sessionStorage.setItem('State', data['data']['State']);
+            sessionStorage.setItem('Pincode', data['data']['Pincode']);
+            
+            console.log('Success: Login Wala', JSON.stringify(data));
+            console.log('Success: Upar Wala', JSON.stringify(data)); 
+            
+            window.location.href='userdasboard.html'
+
           
         })
         .catch((error) => {
