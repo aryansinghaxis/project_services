@@ -197,7 +197,7 @@ footer .social-links a {
  
     </style>
 </head>
-<body>
+<body onload="preventLogin()">
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary"></nav>
     <!-- mealmate cards -->
@@ -222,7 +222,7 @@ footer .social-links a {
         <img src="smoas_512.jpg " class="hoto">
     </div>
     </div>
-    <div class="fourthdpage">
+    <!-- <div class="fourthdpage">
       <div class="photo" id="photo">
           <img src="lunch-meal-service.jpg" class="hoto">
       </div>
@@ -232,7 +232,7 @@ footer .social-links a {
       <p align="justify">Custom tiffin service offers a personalized meal delivery experience, tailored to individual preferences and dietary needs. Unlike regular tiffin services, custom tiffin services allow customers to choose specific dishes, ingredients, and portion sizes.</p>
           <button onclick="window.location.href='mealbooking.html'" class="me">More About</button>
       </div>
-  </div>
+  </div> -->
     <!-- <div class="cardpage">
         <div class="card" style="width: 15rem;">
            <a href="meal-mate.html" target="_blank">
@@ -257,6 +257,20 @@ footer .social-links a {
            </div>
          </div>
        </div> -->
+       <script>
+        function preventLogin(){
+        //alert(sessionStorage.getItem('Email'));
+          if ((sessionStorage.getItem('Email')) === null)
+          {
+            window.location.href='index.html';
+    
+          }
+        }
+        function doLogout(){
+          sessionStorage.clear();
+          window.location.href='index.html';
+        }
+    </script>
        <footer>
         <div class="container">
             <p>&copy; 2024 HouseHoldHelpMate. All rights reserved.</p>
