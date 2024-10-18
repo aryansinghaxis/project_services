@@ -63,34 +63,30 @@
     <h2>Book Your Meal at Meal Mate</h2>
 
     <!-- Restaurant selection -->
-    <label for="restaurant">Select Delivery Partner:</label>
-    <select id="restaurant">
-        <option value="restaurant1">The Spice House</option>
-        <option value="restaurant2">Urban Tandoor</option>
-        <option value="restaurant3">Olive Bistro</option>
-        <option value="restaurant4">The Steak Grill</option>
+    <label for="restaurant">Order Type: </label>
+    <select id="ordertype">
+        <option value="1">Cook</option>
+        <option value="2">Regular</option>
     </select>
 
     <!-- Meal selection -->
-    <label for="meal">Select Meal:</label>
-    <select id="meal">
-        <option value="Chef">Cook</option>
-        <option value="Regural">Regural</option>
-        <option value="Customize">Customize</option>
+    <label for="Cook">Select Cook:</label>
+    <select id="cook">
+        <option value="Rohit">Rohit</option>
+        <option value="Mohit">Mohit</option>
+        <option value="Sharma & Vishnu">Sharma & Vishnu</option>
     </select>
 
     <!-- Date input -->
-    <label for="date">Select Date:</label>
-    <input type="date" id="date">
-
+    <label for="date">Subsscrption Start Date:</label>
+    <input type="date" id="startdate">
+    <label for="date">Subsscrption End Date:</label>
+    <input type="date" id="enddate">
     <!-- Time selection -->
     <label for="time">Select Time Slot:</label>
-    <select id="time">
-        <option value="10:00 AM">10:00 AM</option>
-        <option value="12:30 PM">12:30 PM</option>
-        <option value="6:00 PM">6:00 PM</option>
-        <option value="8:00 PM">8:00 PM</option>
-    </select>
+    <input type="time" id="timeslot">
+
+    
 
     <!-- Button to book meal -->
     <button onclick="bookMeal()">Book Meal</button>
@@ -101,20 +97,51 @@
 
 <script>
     function bookMeal() {
-        const restaurant = document.getElementById('restaurant').value;
-        const meal = document.getElementById('meal').value;
-        const date = document.getElementById('date').value;
-        const time = document.getElementById('time').value;
-        
-        // Basic validation
-        if (restaurant && meal && date && time) {
-            // Display booking message
-            document.getElementById('message').innerText = `Your table for ${meal} at ${restaurant} on ${date} at ${time} is booked!`;
-        } else {
-            document.getElementById('message').innerText = "Please fill out all fields!";
+        const ordertype = document.getElementById('ordertype').value;
+        const cook = document.getElementById('cook').value;
+        const startdate = document.getElementById('startdate').value;
+        const enddate = document.getElementById('enddate').value;
+        const timeslot = document.getElementById('timeslot').value;
+        console.log(ordertype);
+        console.log(cook);
+        console.log(startdate);
+        console.log(enddate);
+        console.log(timeslot);
+        event.preventDefault();
+          // Prepare the data to be sent
+          const data = {
+            Type: ordertype,
+            Cook: cook,
+            SubscriptionStartDate: startdate,
+            SubscriptionEndDate: enddate,
+            TimeSlot: timeslot,
+            EmailId: sessionStorage.getItem("Email")
+          };
+          //alert(JSON.stringify(data));
+          // Send data to the API using fetch
+          fetch('http://127.0.0.1:8000/api/apiMealBooking/', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(data)
+              
+          })
+          .then(response => response.json())
+          .then(data => {
+              console.log('Success:', data);
+
+              alert(data["ErrorMessage"]);
+              window.location.href='userdasboard.html';
+
+          })
+          .catch((error) => {
+              console.log('Error:', error);
+              alert('Failed to send message.');
+          });
         }
-    }
 </script>
+
 
 </body>
 </html>
