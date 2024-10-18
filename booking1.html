@@ -92,13 +92,13 @@
             <!-- Date Selection -->
             <div class="form-group">
                 <label for="date">Preferred Date:</label>
-                <input type="date" id="date" name="date" required>
+                <input type="date" id="datex" name="date" required>
             </div>
 
             <!-- Time Slot Selection -->
             <div class="form-group">
                 <label for="time-slot">Preferred Time Slot:</label>
-                <select id="time-slot" name="time-slot" required>
+                <select id="timeslot" name="time-slot" required>
                     <option value="" disabled selected>Select a time slot</option>
                     <option value="morning">Morning (9 AM - 12 PM)</option>
                     <option value="afternoon">Afternoon (12 PM - 3 PM)</option>
@@ -123,7 +123,7 @@
             </div>
 
             <!-- Submit Button -->
-            <button type="submit">Book Now</button>
+            <button onclick="bookService()" type="submit">Book Now</button>
         </form>
 
         <!-- Confirmation Message -->
@@ -133,6 +133,51 @@
             <button id="new-booking">Make another booking</button>
         </div>
     </div>
+    <script>
+        function bookService() {
+            const service = document.getElementById('service').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const name = document.getElementById('name').value;
+            const timeslot = document.getElementById('timeslot').value;
+            const datex = document.getElementById('datex').value;
+
+            event.preventDefault();
+              // Prepare the data to be sent
+              const data = {
+                Service: service,
+                PreferredDate: datex,
+                FullName: name,
+                PhoneNumber: phone,
+                TimeSlot: timeslot,
+                Address: address,
+                EmailId: sessionStorage.getItem("Email")
+              };
+              //alert(JSON.stringify(data));
+              // Send data to the API using fetch
+              fetch('http://127.0.0.1:8000/api/apiServiceBooking/', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(data)
+                  
+              })
+              .then(response => response.json())
+              .then(data => {
+                  console.log('Success:', data);
+    
+                  alert(data["ErrorMessage"]);
+                  window.location.href='userdasboard.html';
+    
+              })
+              .catch((error) => {
+                  console.log('Error:', error);
+                  alert('Failed to send message.');
+              });
+            }
+    </script>
+    
 
     <script src="aryan.js"></script>
 </body>
