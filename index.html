@@ -40,18 +40,63 @@
       .nav-link:hover {
         color: #33cc00;
       }
-      .dropdown-menu {
-        background-color: #050f12;
-        border: none;
-        box-shadow: 0 0 10px rgba(102, 204, 0, 0.5);
-      }
-      .dropdown-item {
-        color: #eef0eb;
-      }
-      .dropdown-item:hover {
-        background-color: #161616;
-        color: #33cc00;
-      }
+     /* Style for the dropdown button */
+     .dropbtn {
+            background-color: #131111; /* Green background */
+            color: white; /* White text */
+            padding: 7px;/* Padding for the button */
+            font-size: 16px; /* Font size */
+            border-radius: 10%;
+            border-color: white;
+            border-color: white;
+            cursor: pointer; /* Cursor pointer */
+        }
+
+        /* The dropdown container */
+        .dropdown {
+            position: relative; /* Positioned relative to the button */
+            display: inline-block; /* Inline display */
+        }
+
+        /* Dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none; /* Initially hidden */
+            position: absolute; /* Positioned below the button */
+            background-color: #000; /* Light background */
+            min-width: 160px; /* Minimum width */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Shadow effect */
+            z-index: 1; /* Ensure it appears on top */
+            text-decoration: underline;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: #fff; /* Black text */
+            padding: 12px 16px; /* Padding inside each link */
+            text-decoration: none; /* Remove underline */
+            display: block; /* Display links as blocks */
+        }
+
+        /* Change background color of links on hover */
+        .dropdown-content a:hover {
+            background-color: #fff; /* Light gray background on hover */
+            color: #000;
+
+        }
+
+        /* Show the dropdown content when hovering over the button */
+        .dropdown:hover .dropdown-content {
+            display: block;
+             /* Display the dropdown */
+        }
+
+        /* Change button color on hover */
+        .dropdown:hover .dropbtn {
+            background-color: #fff;
+            color: #000
+            ;
+            text-decoration: underline  ;
+        }
       /* Align elements */
       .container {
         display: flex;
@@ -185,25 +230,20 @@ footer .social-links a {
                 <a class="btn btn-outline-light me-4" type="submit"aria-current="page" href="index.html">Home</a>
               </li>
               <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Login/Sign-UP
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="login.html">Login</a></li>
-                  <li><a class="dropdown-item" href="signup.html">Sign-UP</a></li>
-                </ul>
-              </div>
+                <button class="dropbtn">Login/Signup</button>
+                <div class="dropdown-content">
+                    <a href="login.html">Login</a>
+                    <a href="signup.html">Signup</a>
+                </div>
+            </div>
               <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Services
-                </a>
-             
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="service_squad.html">Service-Squad</a></li>
-                  <li><a class="dropdown-item" href="room.html">Room-Ease</a></li>
-                  <li><a class="dropdown-item" href="meal.html">Meal-Mate</a></li>
-                </ul>
-              </div>
+                <button class="dropbtn">Household Services</button>
+                <div class="dropdown-content">
+                    <a href="meal.html">Meal-Mate</a>
+                    <a href="room.html">Room-Ease</a>
+                    <a href="service_squad.html">Service-Squad</a>
+                </div>
+            </div>
               <li class="nav-item">
                 <a class="btn btn-outline-light me-4" href="about us.html">About Us</a>
               </li>
@@ -221,7 +261,7 @@ footer .social-links a {
      <!-- cards -->
      <div class="secondpage">
       <div class="photo" id="photo">
-          <a href="meal.html"><img src="Beige And Yellow Illustrative Food Catering Logo.png " class="hoto"></a>
+          <a href="mael.html"><img src="Beige And Yellow Illustrative Food Catering Logo.png " class="hoto"></a>
        </div>
       <div class="about">
          
